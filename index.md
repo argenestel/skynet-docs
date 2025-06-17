@@ -1,87 +1,160 @@
 ---
 title: Home
-layout: home
+layout: default
 nav_order: 1
+description: "SkynetXBT - Advanced Agentic Framework for Blockchain and AI"
+permalink: /
 ---
 
-# SkynetXBT Documentation
+# SkynetXBT Framework
+{: .fs-9 }
 
-Welcome to the comprehensive documentation for SkynetXBT, an advanced agentic framework for blockchain and AI applications.
+Advanced agentic framework combining blockchain technology with AI-powered automation.
+{: .fs-6 .fw-300 }
+
+[Get Started]({{ site.baseurl }}/getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View on GitHub](https://github.com/spheronFdn/skynetxbt){: .btn .fs-5 .mb-4 .mb-md-0 }
+
+---
+
+## Quick Navigation
+
+<div class="code-example" markdown="1">
+
+### 👤 **For Users**
+- **[User Guide]({{ site.baseurl }}/user-guide/)** - How to use SkynetXBT flows and features
+- **[Flow Catalog]({{ site.baseurl }}/user-guide/flows/)** - Complete list of flows with inputs/outputs
+- **[Getting Started]({{ site.baseurl }}/getting-started/)** - Installation and first steps
+
+### 🛠️ **For Developers**  
+- **[Developer Guide]({{ site.baseurl }}/developer-guide/)** - Technical documentation and API references
+- **[Flows API]({{ site.baseurl }}/developer-guide/flows-api/)** - Build and integrate custom flows
+- **[Core Architecture]({{ site.baseurl }}/developer-guide/core-api/)** - Framework internals
+
+</div>
+
+---
 
 ## What is SkynetXBT?
 
-SkynetXBT is a powerful, modular framework that enables developers to create intelligent agents capable of interacting with blockchain networks, DeFi protocols, and various AI services. It provides a flexible architecture for building autonomous agents that can execute complex workflows and make intelligent decisions.
+SkynetXBT is a modular, event-driven framework that enables the creation of intelligent agents capable of:
+
+- **🤖 AI-Powered Decision Making** - Integration with multiple LLM providers
+- **⛓️ Blockchain Interactions** - Smart contract automation and DeFi operations  
+- **🔄 Flow Orchestration** - Composable workflows for complex tasks
+- **📱 Multi-Channel Communication** - Telegram, webhooks, and API integrations
+- **🔌 Extensible Plugin System** - Custom functionality through plugins
+
+## Flow Architecture Overview
+
+![SkynetXBT Flow Architecture]({{ site.baseurl }}/images/flow.png)
+{: .text-center }
+
+*Visual representation of how flows, agents, and plugins work together in the SkynetXBT ecosystem*
+{: .text-center .text-grey-dk-000 .fs-3 }
+
+## System Architecture
+
+```mermaid
+graph TB
+    A[User Input] --> B[Flows Store]
+    B --> C[Flow Engine]
+    C --> D[Agent Core]
+    D --> E[LLM Manager]
+    D --> F[Plugin System]
+    D --> G[Event Bus]
+    F --> H[Blockchain Plugins]
+    F --> I[Communication Plugins]
+    F --> J[Data Plugins]
+    G --> K[Event Listeners]
+    E --> L[Response Generation]
+    L --> M[User Output]
+```
 
 ## Key Components
 
 ### 🔗 **Flows**
-Orchestrators that define sequences of actions and manage state. Flows coordinate tasks between agents and plugins, handling user interactions and complex workflows. [Learn more →]({{ site.baseurl }}/flows/)
+Self-contained execution units that process inputs and generate outputs. Each flow serves a specific purpose like yield analysis, smart contract interaction, or data processing.
+
+### 🤖 **Agents** 
+Intelligent orchestrators that coordinate multiple flows, maintain context, and make decisions based on user interactions and environmental changes.
 
 ### 🔌 **Plugins**
-Modular components that extend functionality by integrating with external services, blockchain protocols, and APIs. [Learn more →]({{ site.baseurl }}/plugins/)
+Modular extensions that provide specialized functionality for blockchain interactions, external APIs, data processing, and communication channels.
 
-### 🤖 **Agents**
-Intelligent entities that can execute flows, make decisions, and interact with users and blockchain networks. [Learn more →]({{ site.baseurl }}/agents/)
+### 📊 **Flows Store**
+Dynamic registry and management system for discovering, installing, and executing flows across the ecosystem.
 
-### 📦 **Flows Store**
-A dynamic flow management system that allows loading and executing flows by name, providing easy access to the growing ecosystem of pre-built flows. [Learn more →]({{ site.baseurl }}/flows-store/)
+## Popular Use Cases
+
+<div class="code-example" markdown="1">
+
+### 💰 **DeFi Automation**
+- Automated yield farming strategies
+- Portfolio rebalancing and optimization  
+- Cross-chain arbitrage opportunities
+- Liquidity pool analysis and management
+
+### 📈 **Trading & Analytics**
+- Real-time market data analysis
+- Automated trading signal generation
+- Risk assessment and portfolio monitoring
+- DeFi protocol performance tracking
+
+### 🤖 **AI Agents**
+- Conversational AI with blockchain capabilities
+- Smart contract interaction via natural language
+- Automated research and data extraction
+- Multi-modal content generation
+
+### 📱 **Communication & Alerts**
+- Telegram bot integrations
+- Webhook-based notifications
+- Cross-platform message broadcasting
+- Event-driven alert systems
+
+</div>
+
+## Framework Benefits
+
+- **🚀 Rapid Development** - Pre-built flows and plugins accelerate development
+- **🔒 Security First** - Built-in security practices and audit capabilities
+- **📊 Production Ready** - Enterprise-grade reliability and monitoring
+- **🔧 Highly Customizable** - Extensible architecture for custom requirements
+- **🌐 Multi-Chain Support** - EVM-compatible blockchain integrations
+- **📖 Comprehensive Documentation** - Detailed guides for users and developers
 
 ## Getting Started
 
-### Quick Installation
+### For Users
+1. **[Install the Flows Store]({{ site.baseurl }}/getting-started/#installation)** - Get the CLI tool
+2. **[Browse Available Flows]({{ site.baseurl }}/user-guide/flows/)** - See what's available
+3. **[Run Your First Flow]({{ site.baseurl }}/getting-started/#first-flow)** - Try a simple example
 
-```bash
-npm install @skynetxbt/core
-```
+### For Developers  
+1. **[Set Up Development Environment]({{ site.baseurl }}/developer-guide/#quick-start-for-developers)** - Install core dependencies
+2. **[Understand Core Concepts]({{ site.baseurl }}/developer-guide/flows-api/)** - Learn the architecture
+3. **[Build Your First Flow]({{ site.baseurl }}/developer-guide/flows-api/#creating-a-new-flow)** - Create custom functionality
 
-### Basic Usage
-
-```typescript
-import { Agent, FlowEngine } from '@skynetxbt/core';
-
-// Create an agent
-const agent = new Agent({
-  id: { generation: 0, familyCode: "demo", serialNumber: "001" },
-  flows: ['telegram', 'defi-analysis']
-});
-
-// Execute a flow
-await agent.execute({
-  message: "Analyze the best DeFi yields",
-  userPublicKey: "0x...",
-  variables: {}
-});
-```
-
-## Available Flows
-
-SkynetXBT comes with a rich ecosystem of pre-built flows:
-
-- **[Arcadia Finance Flow]({{ site.baseurl }}/flows/arcadia-finance/)** - Yield optimization for Arcadia Finance on Base chain
-- **[Ethers Flow]({{ site.baseurl }}/flows/ethers/)** - Smart contract interactions using ethers.js
-- **[General Agent Flow]({{ site.baseurl }}/flows/general-agent/)** - Configurable LLM agent for various AI tasks
-- **[Telegram Flow]({{ site.baseurl }}/flows/telegram/)** - Telegram bot integration for notifications and interactions
-- **[DeFi Llama Flow]({{ site.baseurl }}/flows/defillama/)** - DeFi protocol analytics and tracking
-- **[Beefy Suggestions Flow]({{ site.baseurl }}/flows/beefy-suggestions/)** - Yield farming strategy recommendations
-
-[View all flows →]({{ site.baseurl }}/flows/)
-
-## Architecture
-
-SkynetXBT follows clean architecture principles:
-
-- **Single Responsibility**: Each component has a focused purpose
-- **Dependency Injection**: Modular, testable design
-- **Event-Driven**: Reactive system architecture
-- **Type Safety**: Full TypeScript implementation
+---
 
 ## Community & Support
 
-- 📚 [Documentation]({{ site.baseurl }})
-- 💬 [Discord Community](#)
-- 🐛 [Report Issues](https://github.com/spheronFdn/skynetxbt/issues)
-- 📧 [Contact Us](#)
+- **GitHub**: [spheronFdn/skynetxbt](https://github.com/spheronFdn/skynetxbt)
+- **Documentation**: [skynetxbt.github.io](https://skynetxbt.github.io)
+- **Issues**: [GitHub Issues](https://github.com/spheronFdn/skynetxbt/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/spheronFdn/skynetxbt/discussions)
 
-## License
+## Contributing
 
-SkynetXBT is open source and available under the MIT License.
+SkynetXBT is open source and welcomes contributions. Whether you want to:
+- Report bugs or suggest features
+- Contribute code improvements
+- Create new flows or plugins  
+- Improve documentation
+
+Check out our [Contributing Guide]({{ site.baseurl }}/developer-guide/contributing/) to get started.
+
+---
+
+**Ready to explore?** Start with our [Getting Started Guide]({{ site.baseurl }}/getting-started/) or dive into the [Flow Catalog]({{ site.baseurl }}/user-guide/flows/) to see what's possible.

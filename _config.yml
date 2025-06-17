@@ -13,5 +13,14 @@ search_enabled: true
 # Navigation structure
 nav_sort: case_insensitive
 
+# Enable collections for better organization
+collections:
+  user_docs:
+    permalink: "/:collection/:name/"
+    output: true
+  developer_docs:
+    permalink: "/:collection/:name/"
+    output: true
+
 # Footer
 footer_content: "Copyright &copy; 2024 SkynetXBT. Licensed under the MIT License."
