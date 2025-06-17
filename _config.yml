@@ -13,6 +13,32 @@ search_enabled: true
 # Navigation structure
 nav_sort: case_insensitive
 
+color_scheme: nil
+color_scheme_toggle:
+  enabled: true
+
+# Customize colors for dark mode (optional)
+# You can also create custom color schemes
+callouts_level: quiet
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  tip:
+    title: Tip
+    color: green
+  warning:
+    title: Warning
+    color: red
+
 # Enable collections for better organization
 collections:
   user_docs:
